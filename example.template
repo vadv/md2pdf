@@ -11,7 +11,7 @@
 \usepackage{fontspec}
 \setmainfont{DejaVu Serif}
 \setsansfont{DejaVu Sans}
-\setmonofont{Ubuntu Mono for Powerline}
+\setmonofont{DejaVu Sans Mono}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 
 % Таблицы
