@@ -1,0 +1,136 @@
+\documentclass{article}
+
+% Локализация
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+% Шрифты
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{Ubuntu Mono for Powerline}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+
+% Таблицы
+\usepackage{longtable,tabularx,tabulary,booktabs}
+\aboverulesep=0ex
+\belowrulesep=0ex
+
+% Геометрия страницы
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,247mm},
+ left=10mm,
+ right=10mm,
+ top=15mm,
+ }
+
+% Красная строка
+\usepackage{indentfirst}
+% \parindent=0mm
+
+% Настройка подсветки синтаксиса
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily,
+    backgroundcolor=\color{black!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    linewidth=\textwidth
+}
+
+% Контикулы
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\pagestyle{fancy}
+\colorlet{headbgcolor}{green!50!blue!70}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.2pt}
+\fancyhf{}
+% \fancyhead[LO]{\includegraphics[width=80pt]{logo.eps}}
+\fancyhead[R,C]{}
+\fancyfoot[CO]{\centering\texttt{\copyright 2018 Dmitry Vasiliev.}}
+\fancyfoot[R]{%
+\begin{tcolorbox}[colback=headbgcolor,arc=0mm,auto outer arc,left=0mm,right=0mm,boxrule=0mm,top=0mm,bottom=0mm,width={12mm}]
+\centering\bfseries\texttt{\large{\thepage}}
+\end{tcolorbox}
+}
+
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
+
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{colorlinks,%
+citecolor=blue,%
+filecolor=blue,%
+linkcolor=blue,%
+urlcolor=blue,%
+pdftex}
+
+\usepackage{url}
+\usepackage{graphicx}
+
+% отключает генерацию нумерации в таком стиле: 7.4.1 Олол => Олол
+\setcounter{secnumdepth}{0}
+
+% Тело документа
+\begin{document}
+
+
+%-------------------------------------------------
+%                       Title
+%-------------------------------------------------
+\begin{titlepage}
+
+\center
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% \HRule \\[0.4cm]
+\vspace*{\fill}
+{ \huge \bfseries Отчет}\\[0.4cm]
+\textsc{\Large по результатам работ}\\[0.5cm]
+\textsc{\Large по Договору возмездного оказания услуг}\\[0.5cm]
+\textsc{\Large $contract$}\\[0.5cm]
+\vspace*{\fill}
+% \HRule \\[1.5cm]
+
+$if(author)$
+\Large \emph{Автор:}\\
+\textsc{$author$}\\[3cm]
+$endif$
+
+$if(date)$
+\textsc{$date$}\\[2cm]
+$endif$
+\end{titlepage}
+
+%-------------------------------------------------
+%                End title
+%-------------------------------------------------
+
+% Оглавление
+\hypersetup{linkcolor=black}
+\tableofcontents
+\newpage
+
+% Контент
+\pagestyle{fancy}
+$body$
+
+\end{document}
